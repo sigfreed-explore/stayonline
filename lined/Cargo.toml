@@ -4,4 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-gpsd_proto = { version = "1.0.0", features = ["serialize"] }
+anyhow = "1.0.80"
+base64 = "0.22.0"
+ciborium = "0.2.2"
+gpsd = "0.1.2"
+reqwest = "0.11.24"
+serde = { version = "1.0.197", features = ["derive"] }
+sled = "0.34.7"
+tokio = { version = "1.36.0", features = ["full"] }
+uuid = { version = "1.7.0", features = ["v4"] }
