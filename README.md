@@ -9,3 +9,7 @@ the daemon that keeps you lined up
 ## online
 
 the server that makes sure you're not offline
+
+## this is bad documentation
+
+just read the code
