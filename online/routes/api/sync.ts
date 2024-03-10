@@ -2,7 +2,7 @@ import { crypto } from "$std/crypto/mod.ts";
 import { FreshContext } from "$fresh/server.ts";
 import { decode } from "cbor";
 import { encodeBase64Url } from "$std/encoding/base64url.ts";
-import { addTpvs, getPiSecret, TPV } from "../../db.ts";
+import { addTpvs, getPi, TPV } from "../../db.ts";
 
 export const handler = async (
   req: Request,
@@ -18,13 +18,14 @@ export const handler = async (
     !msg || typeof msg !== "object" || !Object.hasOwn(msg, "tok") ||
     typeof (msg as { tok: unknown }).tok !== "string"
   ) return new Response("bad req", { status: 400 });
-  const [piid, mac] = (msg as { tok: string }).tok.split("\0");
-  const sec = await getPiSecret(piid);
-  if (!sec) return new Response("unauthn", { status: 401 });
+  const [piid, mac] = (msg as { tok: string }).tok.split(".");
+  if (!piid) return new Response("unauthn", { status: 401 });
+  const pi = await getPi(piid);
+  if (!pi) return new Response("unauthn", { status: 401 });
   const expectedMac = encodeBase64Url(
     await crypto.subtle.digest(
       "SHA3-512",
-      new TextEncoder().encode(`${piid}\0${sec}`),
+      new TextEncoder().encode(`${piid}.${pi.secret}`),
     ),
   );
   if (mac !== expectedMac) return new Response("unauthn", { status: 401 });

@@ -1,11 +1,7 @@
-# dotenv environment variable files
+masterkey.txt
+_fresh/
 .env
 .env.development.local
 .env.test.local
 .env.production.local
 .env.local
-
-# Fresh build directory
-_fresh/
-# npm dependencies
-node_modules/

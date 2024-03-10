@@ -2,12 +2,10 @@ import { crypto } from "$std/crypto/mod.ts";
 import { decodeBase64Url, encodeBase64Url } from "$std/encoding/base64url.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
+import { addPi, getPis, PiMeta } from "../db.ts";
 
 interface AP {
-  pis: Record<string, {
-    name: string;
-    accentBackground: string;
-  }>;
+  pis: Record<string, PiMeta>;
 }
 
 async function isAdmin(headers: Headers) {
@@ -33,5 +31,5 @@ export const handler: Handlers<AP> = {
 };
 
 export default function Admin({}: PageProps<AP>) {
-  return <>TODO</>;
+  return <div>TODO</div>;
 }
