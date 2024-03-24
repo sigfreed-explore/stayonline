@@ -27,7 +27,8 @@
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
     "$std/": "https://deno.land/std@0.211.0/",
-    "cbor": "npm:cbor-x@1.5.8"
+    "cbor": "npm:cbor-x@1.5.8",
+    "ol/": "https://esm.sh/ol@9.0.0/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

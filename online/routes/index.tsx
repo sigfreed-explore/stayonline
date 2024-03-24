@@ -1,3 +1,9 @@
+import Map from "../islands/map.tsx";
+
 export default function Home() {
-  return <>...</>;
+  return (
+    <>
+      <Map piids={[""]} />
+    </>
+  );
 }
