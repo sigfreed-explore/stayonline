@@ -8,6 +8,7 @@ export const handler = async (
   req: Request,
   _ctx: FreshContext,
 ): Promise<Response> => {
+  if (req.method !== "POST") return new Response(null, { status: 405 });
   let msg: unknown;
   try {
     msg = decode(await req.arrayBuffer());
