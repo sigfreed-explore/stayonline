@@ -1,0 +1,9 @@
+[Unit]
+Description=get lined up
+
+[Service]
+Restart=always
+ExecStart=/usr/local/bin/lined
+
+[Install]
+WantedBy=multi-user.target
