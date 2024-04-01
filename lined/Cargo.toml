@@ -12,3 +12,5 @@ serde = { version = "1.0.197", features = ["derive"] }
 sled = "0.34.7"
 tokio = { version = "1.36.0", features = ["full"] }
 uuid = { version = "1.7.0", features = ["v4", "serde"] }
+openssl = { features = ["vendored"] }
+clap = { version = "4.5.4", features = ["derive"] }
